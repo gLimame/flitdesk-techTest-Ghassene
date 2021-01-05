@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll",
     "dev": "nodemon ./index.js",
-    "exec": "node ./index.js"
+    "start": "node ./index.js"
   },
   "keywords": [],
   "author": "",
