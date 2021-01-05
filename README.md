@@ -1,6 +1,7 @@
 # flitdesk-techTest-Ghassene
 
 Sauf erreur de ma part, chercher à avoir ce résultat lors de la requette GET
+
 [
 	{
 		seasonNumber: 'integer',
@@ -16,8 +17,14 @@ Sauf erreur de ma part, chercher à avoir ce résultat lors de la requette GET
 ]
 
 peut amener l'utilisateur de l'API vers une incompréhension.
+
+
 En effet, ## seasonNumber: 'integer', ## n'est pas unique, 
+
+
 j'ai donc opté pour ce résultat final afin d'éviter un mélange des saisons
+
+
 [
   {
     seasonTitle: 'DS9 Season 6',
