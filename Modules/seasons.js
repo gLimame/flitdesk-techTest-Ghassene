@@ -13,7 +13,6 @@ const fetchAllData = async () => {
 const getEpisodesList = async (data) => {
   try {
     const { episodes } = data;
-    // console.log(episodes)
     return episodes;
   } catch (err) {
     throw err;
@@ -22,7 +21,6 @@ const getEpisodesList = async (data) => {
 
 const getSeasonsList = async (episodes) => {
   try {
-    // console.log(episodes)
     const seasons = _.uniq(episodes.map(episode => episode.season.title));
     return seasons;
   } catch (err) {
@@ -33,7 +31,6 @@ const getSeasonsList = async (episodes) => {
 const formatEpisodesBySeason = async (listSeasons, listEpisodes) => {
   try {
     const seasons = listSeasons.map(title => title = { seasonTitle: title, episodes: [] });
-    console.log(listEpisodes);
     for (const episode of listEpisodes) {
       const resultat = seasons.map((season, index, seasons) => {
         if (season.seasonTitle == episode.season.title) {
@@ -54,11 +51,14 @@ const formatEpisodesBySeason = async (listSeasons, listEpisodes) => {
 }
 
 exports.getEpisodesBySeasons = async () => {
-  const allData = await fetchAllData();
-  const listEpisodes = await getEpisodesList(allData);
-  const listSeasons = await getSeasonsList(listEpisodes);
-  const listBySeason = await formatEpisodesBySeason(listSeasons, listEpisodes);
-  console.log(listBySeason);
-  return listBySeason;
+  try {
+    const allData = await fetchAllData();
+    const listEpisodes = await getEpisodesList(allData);
+    const listSeasons = await getSeasonsList(listEpisodes);
+    const listBySeason = await formatEpisodesBySeason(listSeasons, listEpisodes);
+    return listBySeason;
+  } catch (err) {
+    throw err
+  }
 }
 
