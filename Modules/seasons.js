@@ -50,7 +50,7 @@ const formatEpisodesBySeason = async (listSeasons, listEpisodes) => {
   }
 }
 
-exports.getEpisodesBySeasons = async () => {
+const getEpisodesBySeasons = async () => {
   try {
     const allData = await fetchAllData();
     const listEpisodes = await getEpisodesList(allData);
@@ -61,4 +61,11 @@ exports.getEpisodesBySeasons = async () => {
     throw err
   }
 }
+
+module.exports = {
+  getEpisodesBySeasons,
+  getEpisodesList,
+  getSeasonsList,
+  formatEpisodesBySeason,
+};
 

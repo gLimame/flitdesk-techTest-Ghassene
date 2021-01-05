@@ -1,8 +1,12 @@
 const router = require('express').Router();
-const { seasons, comments } = require('../Modules/controllers')
+const bodyParser = require('body-parser')
 
-router.get("/seasons", seasons)
+const { seasons } = require('../Controllers/seasons.controller')
+const { comments } = require('../Controllers/comments.controller')
 
-router.post("/comments", comments)
+const jsonParser = bodyParser.json();
+
+router.get("/seasons", seasons);
+router.post("/comments", jsonParser, comments);
 
 module.exports = router;

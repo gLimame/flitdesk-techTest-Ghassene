@@ -1,7 +1,8 @@
 const express = require('express');
 const episodesRouter = require('./Router/episode')
 
-const app = express();
+var app = express()
+
 
 app.use('/', episodesRouter);
 
